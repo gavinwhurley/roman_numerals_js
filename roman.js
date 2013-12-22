@@ -1,7 +1,18 @@
 // roman numeral parser by gavin
 
-function echo (sayThis) {
-	document.write(sayThis);
+function makeRoman(decimal) {
+	var solution = '';
+	if (isNaN(decimal)) {
+		solution = 'not a number';
+	}
+	else if (decimal > 4999 || decimal < 0) {
+		solution = 'number out of range'
+	}
+	else {
+		var expandedNotation = breakIntoParts(decimal);
+		solution = convertToRoman(expandedNotation);		
+	}
+	return solution;
 }
 
 function getPlace(decimal, place) {
@@ -43,18 +54,4 @@ function convertToRoman(results) {
 	return returnThis;
 }
 
-function makeRoman(decimal) {
-	var solution = '';
-	if (isNaN(decimal)) {
-		solution = 'not a number';
-	}
-	else if (decimal > 4999 || decimal < 0) {
-		solution = 'number out of range'
-	}
-	else {
-		var expandedNotation = breakIntoParts(decimal);
-		solution = convertToRoman(expandedNotation);		
-	}
-	var output = document.getElementById("outputValue");
-	output.value = solution;
-}
+
