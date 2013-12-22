@@ -1,5 +1,3 @@
-<head>
-<script type="text/javascript">
 // roman numeral parser by gavin
 
 function echo (sayThis) {
@@ -60,28 +58,3 @@ function makeRoman(decimal) {
 	var output = document.getElementById("outputValue");
 	output.value = solution;
 }
-
-</script>
-</head>
-<body>
-Javascript Roman Numeral Converter
-</br>
-<script type="text/javascript">
-	function submitValue () {
-		var a = document.getElementById("inputValue").value;
-		makeRoman(a);
-	}
-
-//function echo (sayThis) {
-//	document.write(sayThis);
-//}
-
-</script>
-</br>
-<form>
-	<input type="text" id="inputValue"></input>
-	<input type="button" id="cmdProcess" value="Process" onclick="submitValue()"></input>
-	<br>
-	<input type="text" size="35" id="outputValue"></input>
-</form>
-</body>
