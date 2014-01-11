@@ -1,75 +1,21 @@
 <head>
-<script type="text/javascript">
-// roman numeral parser by gavin
-
-function echo (sayThis) {
-	document.write(sayThis);
-}
-
-function getPlace(decimal, place) {
-	if (decimal >= place) {
-		 return Math.floor(decimal/place);
-	}
-	else {
-		return 0;
-	}
-}
-
-function makeRoman(decimal) {
-	if (isNaN(decimal)) {
-	    return 'not a number';
-	    document.write("Not a number");
-	}
-	else {
-		// break it out into expanded notation
-		var places = [1000,900,500,400,100,90,50,40,10,9,5];
-		var results = [];
-		var counter = decimal * 1;
-		for (p in places) {
-			results.push(getPlace(counter, places[p]));
-			counter -= (results[results.length - 1] * places[p]);
-		}
-		// the only thing left that should be left are ones
-        results.push(counter);
-
-		// map the results to roman numerals
-        var roman = ['M', 'DM', 'D', 'CD', 'C', 'LC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
-        var solution = [];
-		for (var r in roman) {
-			// repeat the character for the number of times in results
-			// add one, two or three
-		    for (var i = 0; i < results[r]; i++) {
-		        solution.push(roman[r]);
-			}
-		}
-    }
-
-    var output = document.getElementById("outputValue");
-	output.value = results + "  " + solution;	
-}
-
-</script>
+<script type="text/javascript" src="roman.js"></script>
 </head>
 <body>
 Javascript Roman Numeral Converter
 </br>
 <script type="text/javascript">
-	function submitValue () {
-		var a = document.getElementById("inputValue").value;
-		makeRoman(a);
+	function convert () {
+		var input = document.getElementById("inputValue").value;
+		var output = document.getElementById("outputValue");
+		output.value = makeRoman(input);
 	}
-
-//function echo (sayThis) {
-//	document.write(sayThis);
-//}
-
 </script>
-<br/>
+</br>
 <form>
 	<input type="text" id="inputValue"></input>
-	<input type="button" id="cmdProcess" value="Process" onclick="submitValue()"></input>
-	<br/>
-	<input type="text" id="outputValue" size="70"></input>
+	<input type="button" id="cmdProcess" value="Process" onclick="convert()"></input>
+	<br>
+	<input type="text" size="35" id="outputValue"></input>
 </form>
-<a href="http://literacy.kent.edu/Minigrants/Cinci/romanchart.htm">Test</a>
 </body>
