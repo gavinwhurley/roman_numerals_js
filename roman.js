@@ -5,12 +5,12 @@ function makeRoman(decimal) {
 	if (isNaN(decimal)) {
 		solution = 'not a number';
 	}
-	else if (decimal > 4999 || decimal < 0) {
+	else if (decimal > 4999 || decimal < 1) {
 		solution = 'number out of range'
 	}
 	else {
 		var expandedNotation = breakIntoParts(decimal);
-		solution = convertToRoman(expandedNotation);		
+		solution = convertToRoman(expandedNotation);
 	}
 	return solution;
 }
@@ -50,8 +50,6 @@ function convertToRoman(results) {
 			newChar += roman[r];
 		}
 		returnThis += newChar;
-	} 
+	}
 	return returnThis;
 }
-
-
